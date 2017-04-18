@@ -19,13 +19,14 @@
     h1{
       font-family: 'Lato', sans-serif;
       font-weight: 900;
-      color: #d33682;
+      color: #657b83;
       text-align: center;
-      font-size: 2.2em;
+      font-size: 1.777em;
     }
     h2, h3, h4{
       font-family: 'Fira Mono', monospace;
-      color: #424242;
+      color: #002b36;
+      font-size: 1.333em;
     }
     .center{
       text-align: center;
@@ -37,11 +38,14 @@
       width:100%;
       height:100%;
     }
+    .links{
+      padding-top: .5em;
+    }
     .link{
       font-family: 'Fira Mono', monospace;
       text-align: center;
       margin-bottom: .25em;
-      font-size: 1.1em;
+      font-size: 1em;
       background-color: #268bd2;
       transition: background-color 200ms ease-in;
     }
@@ -53,7 +57,7 @@
       margin: 10% auto;
       width: 95%;
       max-width: 55em;
-      background-color: #ebece6;
+      background-color: #fdf6e3;
       border-radius: 2px;
       -webkit-box-shadow: 4px 4px 3px 0px rgba(0,0,0,0.42);
       -moz-box-shadow: 4px 4px 3px 0px rgba(0,0,0,0.42);
@@ -79,19 +83,19 @@
       padding-top: 8px;
       cursor:pointer;
     }
-    .note, .keyNote{
+    .note, .noteLabel{
       font-size: 1.7em;
       margin: auto;
       transition: all 200ms ease-in;
       opacity:.4;
     }
-    .keyNote{
+    .noteLabel{
       font-family: 'Fira Mono', monospace;
       opacity:0;
       transition: all 200ms ease-in;
       pointer-events: none;
     }
-    .keyNote.active{
+    .noteLabel.active{
       opacity:.4;
     }
     @media only screen and (max-width: 509px){
@@ -124,142 +128,186 @@
       <div class="row middle-xs">
         <div class="col-sm-6">
           <div class="bio">
-            <h1>Hey - I'm Tom Milburn</h1>
-            <h2 class="center">I'm intensely passionate about the overlap between media and software.</h2>
-            <h2 class="center">I'd also like to work for you.</h2>        </div>
+            <h1>hey! i'm tom milburn</h1>
+            <h2 class="center">I'm intensely passionate about the overlap between media, software, and design.</h2>
+            <h2 class="center">I'd also like to work for you.</h2>        
           </div>
-          <div class="col-sm-6 col-xs-12">
-            <div class="row">
-              <div class="col-xs-6">
-                <div class="link"><a href="mailto:thomasjosephmilburn@gmail.com">get in touch</a></div>
-              </div>
-              <div class="col-xs-6">
-                <div class="link"><a href="Thomas-Milburn-resume.pdf">resume</a></div>
-              </div>
+        </div>
+        <div class="col-sm-6 col-xs-12 links">
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="link"><a href="https://github.com/tommilburn">github</a></div>
             </div>
-            <div class="row">
-              <div class="col-xs-6">
-                <div class="link"><a href="https://github.com/tommilburn">github</a></div>
-              </div>
-              <div class="col-xs-6">
-                <div class="link"><a href="https://twitter.com/tommilburn">twitter</a></div>
-              </div>
+            <div class="col-xs-6">
+              <div class="link"><a href="Thomas-Milburn-resume.pdf">resume</a></div>
             </div>
-            <div class="row">
-              <div class="col-xs-6">
-                <div class="link"><a href="https://www.linkedin.com/in/thomas-milburn-a3136992">linkedin</a></div>
-              </div>
-              <div class="col-xs-6">
-                <div class="link"><a href="/photos">photos</a></div>
-              </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="link"><a href="https://www.linkedin.com/in/thomas-milburn-a3136992">linkedin</a></div>
+            </div>
+            <div class="col-xs-6">
+              <div class="link"><a href="https://twitter.com/tommilburn">twitter</a></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="link"><a href="https://www.flickr.com/gp/153859490@N03/5Cp038">photos</a></div>
+            </div>
+            <div class="col-xs-6">
+              <div class="link"><a href="mailto:thomasjosephmilburn@gmail.com">email</a></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="footer" id="colorfooter">
-      </div>
     </div>
+    <div class="footer" id="colorfooter">
+    </div>
+  </div>
 
-    <script>
+  <script>
     /*https://randomcolor.llllll.li/*/
-      (function(root,factory){if(typeof define==="function"&&define.amd){define([],factory)}else if(typeof exports==="object"){var randomColor=factory();if(typeof module==="object"&&module&&module.exports){exports=module.exports=randomColor}exports.randomColor=randomColor}else{root.randomColor=factory()}})(this,function(){var seed=null;var colorDictionary={};loadColorBounds();var randomColor=function(options){options=options||{};if(options.seed&&options.seed===parseInt(options.seed,10)){seed=options.seed}else if(typeof options.seed==="string"){seed=stringToInteger(options.seed)}else if(options.seed!==undefined&&options.seed!==null){throw new TypeError("The seed value must be an integer")}else{seed=null}var H,S,B;if(options.count!==null&&options.count!==undefined){var totalColors=options.count,colors=[];options.count=null;while(totalColors>colors.length){if(seed&&options.seed)options.seed+=1;colors.push(randomColor(options))}options.count=totalColors;return colors}H=pickHue(options);S=pickSaturation(H,options);B=pickBrightness(H,S,options);return setFormat([H,S,B],options)};function pickHue(options){var hueRange=getHueRange(options.hue),hue=randomWithin(hueRange);if(hue<0){hue=360+hue}return hue}function pickSaturation(hue,options){if(options.luminosity==="random"){return randomWithin([0,100])}if(options.hue==="monochrome"){return 0}var saturationRange=getSaturationRange(hue);var sMin=saturationRange[0],sMax=saturationRange[1];switch(options.luminosity){case"bright":sMin=55;break;case"dark":sMin=sMax-10;break;case"light":sMax=55;break}return randomWithin([sMin,sMax])}function pickBrightness(H,S,options){var bMin=getMinimumBrightness(H,S),bMax=100;switch(options.luminosity){case"dark":bMax=bMin+20;break;case"light":bMin=(bMax+bMin)/2;break;case"random":bMin=0;bMax=100;break}return randomWithin([bMin,bMax])}function setFormat(hsv,options){switch(options.format){case"hsvArray":return hsv;case"hslArray":return HSVtoHSL(hsv);case"hsl":var hsl=HSVtoHSL(hsv);return"hsl("+hsl[0]+", "+hsl[1]+"%, "+hsl[2]+"%)";case"hsla":var hslColor=HSVtoHSL(hsv);return"hsla("+hslColor[0]+", "+hslColor[1]+"%, "+hslColor[2]+"%, "+Math.random()+")";case"rgbArray":return HSVtoRGB(hsv);case"rgb":var rgb=HSVtoRGB(hsv);return"rgb("+rgb.join(", ")+")";case"rgba":var rgbColor=HSVtoRGB(hsv);return"rgba("+rgbColor.join(", ")+", "+Math.random()+")";default:return HSVtoHex(hsv)}}function getMinimumBrightness(H,S){var lowerBounds=getColorInfo(H).lowerBounds;for(var i=0;i<lowerBounds.length-1;i++){var s1=lowerBounds[i][0],v1=lowerBounds[i][1];var s2=lowerBounds[i+1][0],v2=lowerBounds[i+1][1];if(S>=s1&&S<=s2){var m=(v2-v1)/(s2-s1),b=v1-m*s1;return m*S+b}}return 0}function getHueRange(colorInput){if(typeof parseInt(colorInput)==="number"){var number=parseInt(colorInput);if(number<360&&number>0){return[number,number]}}if(typeof colorInput==="string"){if(colorDictionary[colorInput]){var color=colorDictionary[colorInput];if(color.hueRange){return color.hueRange}}}return[0,360]}function getSaturationRange(hue){return getColorInfo(hue).saturationRange}function getColorInfo(hue){if(hue>=334&&hue<=360){hue-=360}for(var colorName in colorDictionary){var color=colorDictionary[colorName];if(color.hueRange&&hue>=color.hueRange[0]&&hue<=color.hueRange[1]){return colorDictionary[colorName]}}return"Color not found"}function randomWithin(range){if(seed===null){return Math.floor(range[0]+Math.random()*(range[1]+1-range[0]))}else{var max=range[1]||1;var min=range[0]||0;seed=(seed*9301+49297)%233280;var rnd=seed/233280;return Math.floor(min+rnd*(max-min))}}function HSVtoHex(hsv){var rgb=HSVtoRGB(hsv);function componentToHex(c){var hex=c.toString(16);return hex.length==1?"0"+hex:hex}var hex="#"+componentToHex(rgb[0])+componentToHex(rgb[1])+componentToHex(rgb[2]);return hex}function defineColor(name,hueRange,lowerBounds){var sMin=lowerBounds[0][0],sMax=lowerBounds[lowerBounds.length-1][0],bMin=lowerBounds[lowerBounds.length-1][1],bMax=lowerBounds[0][1];colorDictionary[name]={hueRange:hueRange,lowerBounds:lowerBounds,saturationRange:[sMin,sMax],brightnessRange:[bMin,bMax]}}function loadColorBounds(){defineColor("monochrome",null,[[0,0],[100,0]]);defineColor("red",[-26,18],[[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50]]);defineColor("orange",[19,46],[[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70]]);defineColor("yellow",[47,62],[[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75]]);defineColor("green",[63,178],[[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40]]);defineColor("blue",[179,257],[[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35]]);defineColor("purple",[258,282],[[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42]]);defineColor("pink",[283,334],[[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]])}function HSVtoRGB(hsv){var h=hsv[0];if(h===0){h=1}if(h===360){h=359}h=h/360;var s=hsv[1]/100,v=hsv[2]/100;var h_i=Math.floor(h*6),f=h*6-h_i,p=v*(1-s),q=v*(1-f*s),t=v*(1-(1-f)*s),r=256,g=256,b=256;switch(h_i){case 0:r=v;g=t;b=p;break;case 1:r=q;g=v;b=p;break;case 2:r=p;g=v;b=t;break;case 3:r=p;g=q;b=v;break;case 4:r=t;g=p;b=v;break;case 5:r=v;g=p;b=q;break}var result=[Math.floor(r*255),Math.floor(g*255),Math.floor(b*255)];return result}function HSVtoHSL(hsv){var h=hsv[0],s=hsv[1]/100,v=hsv[2]/100,k=(2-s)*v;return[h,Math.round(s*v/(k<1?k:2-k)*1e4)/100,k/2*100]}function stringToInteger(string){var total=0;for(var i=0;i!==string.length;i++){if(total>=Number.MAX_SAFE_INTEGER)break;total+=string.charCodeAt(i)}return total}return randomColor});</script>
-      <script>
-        var footer = document.getElementById("colorfooter");
-        footer.style.backgroundColor = randomColor();
-        var width = footer.offsetWidth;
-        var squares = parseInt(width / 50);
-        (function(){
-          footer.style.height = width / squares + "px";
-          var colorboxes = document.createElement("div");
-          colorboxes.setAttribute("class", "colorboxes");
-          var box;
-          for(i = 0; i < squares+1; i++){
-            box = document.createElement("div");
-            box.setAttribute("class", "box");
-            box.style.width= width / squares + "px";
-            box.onclick = fillBoxes;
-            colorboxes.appendChild(box);
-          }
-          footer.appendChild(colorboxes);
-          fillBoxes();
-        })();
-
-        function fillBoxes(){
-          boxes = document.getElementsByClassName("box");
-          boxes[0].innerHTML = '<span class="note">&#9835;</span>';
-          for(var i = 0; i < boxes.length; i++){
-            boxes[i].style.backgroundColor = randomColor({luminosity:'light'});
-            if(i > 0){ //skip note icon box
-              boxes[i].id = "box" + (i-1);
-            }
-          }
-        };
-        
-
-        // audio
-        var context;
-        var audio = {};
-        window.addEventListener('load', audioInit, false);
-        function audioInit() {
-          try {
-            window.AudioContext = window.AudioContext||window.webkitAudioContext;
-            context = new AudioContext();
-            var notebox = document.getElementsByClassName("box")[0]
-            notebox.innerHTML = '<span class="note">&#9835;</span>';
-            var notes = document.getElementsByClassName("box");
-            var keyLetters = ['c', 'd', 'f', 'g', 'a'];
-            for(var i = 1; i < notes.length; i++){
-              notes[i].innerHTML = '<span class="keyNote">' + keyLetters[(i - 1) % keyLetters.length] +' </span>';
-              document.getElementsByClassName("keyNote").className = "keyNote active";
-            }
-            notebox.onclick = enableKeyboard;
-          }
-          catch(e) {
-            console.log('Web Audio API is not supported in this browser');
-          }
+    (function(root,factory){if(typeof define==="function"&&define.amd){define([],factory)}else if(typeof exports==="object"){var randomColor=factory();if(typeof module==="object"&&module&&module.exports){exports=module.exports=randomColor}exports.randomColor=randomColor}else{root.randomColor=factory()}})(this,function(){var seed=null;var colorDictionary={};loadColorBounds();var randomColor=function(options){options=options||{};if(options.seed&&options.seed===parseInt(options.seed,10)){seed=options.seed}else if(typeof options.seed==="string"){seed=stringToInteger(options.seed)}else if(options.seed!==undefined&&options.seed!==null){throw new TypeError("The seed value must be an integer")}else{seed=null}var H,S,B;if(options.count!==null&&options.count!==undefined){var totalColors=options.count,colors=[];options.count=null;while(totalColors>colors.length){if(seed&&options.seed)options.seed+=1;colors.push(randomColor(options))}options.count=totalColors;return colors}H=pickHue(options);S=pickSaturation(H,options);B=pickBrightness(H,S,options);return setFormat([H,S,B],options)};function pickHue(options){var hueRange=getHueRange(options.hue),hue=randomWithin(hueRange);if(hue<0){hue=360+hue}return hue}function pickSaturation(hue,options){if(options.luminosity==="random"){return randomWithin([0,100])}if(options.hue==="monochrome"){return 0}var saturationRange=getSaturationRange(hue);var sMin=saturationRange[0],sMax=saturationRange[1];switch(options.luminosity){case"bright":sMin=55;break;case"dark":sMin=sMax-10;break;case"light":sMax=55;break}return randomWithin([sMin,sMax])}function pickBrightness(H,S,options){var bMin=getMinimumBrightness(H,S),bMax=100;switch(options.luminosity){case"dark":bMax=bMin+20;break;case"light":bMin=(bMax+bMin)/2;break;case"random":bMin=0;bMax=100;break}return randomWithin([bMin,bMax])}function setFormat(hsv,options){switch(options.format){case"hsvArray":return hsv;case"hslArray":return HSVtoHSL(hsv);case"hsl":var hsl=HSVtoHSL(hsv);return"hsl("+hsl[0]+", "+hsl[1]+"%, "+hsl[2]+"%)";case"hsla":var hslColor=HSVtoHSL(hsv);return"hsla("+hslColor[0]+", "+hslColor[1]+"%, "+hslColor[2]+"%, "+Math.random()+")";case"rgbArray":return HSVtoRGB(hsv);case"rgb":var rgb=HSVtoRGB(hsv);return"rgb("+rgb.join(", ")+")";case"rgba":var rgbColor=HSVtoRGB(hsv);return"rgba("+rgbColor.join(", ")+", "+Math.random()+")";default:return HSVtoHex(hsv)}}function getMinimumBrightness(H,S){var lowerBounds=getColorInfo(H).lowerBounds;for(var i=0;i<lowerBounds.length-1;i++){var s1=lowerBounds[i][0],v1=lowerBounds[i][1];var s2=lowerBounds[i+1][0],v2=lowerBounds[i+1][1];if(S>=s1&&S<=s2){var m=(v2-v1)/(s2-s1),b=v1-m*s1;return m*S+b}}return 0}function getHueRange(colorInput){if(typeof parseInt(colorInput)==="number"){var number=parseInt(colorInput);if(number<360&&number>0){return[number,number]}}if(typeof colorInput==="string"){if(colorDictionary[colorInput]){var color=colorDictionary[colorInput];if(color.hueRange){return color.hueRange}}}return[0,360]}function getSaturationRange(hue){return getColorInfo(hue).saturationRange}function getColorInfo(hue){if(hue>=334&&hue<=360){hue-=360}for(var colorName in colorDictionary){var color=colorDictionary[colorName];if(color.hueRange&&hue>=color.hueRange[0]&&hue<=color.hueRange[1]){return colorDictionary[colorName]}}return"Color not found"}function randomWithin(range){if(seed===null){return Math.floor(range[0]+Math.random()*(range[1]+1-range[0]))}else{var max=range[1]||1;var min=range[0]||0;seed=(seed*9301+49297)%233280;var rnd=seed/233280;return Math.floor(min+rnd*(max-min))}}function HSVtoHex(hsv){var rgb=HSVtoRGB(hsv);function componentToHex(c){var hex=c.toString(16);return hex.length==1?"0"+hex:hex}var hex="#"+componentToHex(rgb[0])+componentToHex(rgb[1])+componentToHex(rgb[2]);return hex}function defineColor(name,hueRange,lowerBounds){var sMin=lowerBounds[0][0],sMax=lowerBounds[lowerBounds.length-1][0],bMin=lowerBounds[lowerBounds.length-1][1],bMax=lowerBounds[0][1];colorDictionary[name]={hueRange:hueRange,lowerBounds:lowerBounds,saturationRange:[sMin,sMax],brightnessRange:[bMin,bMax]}}function loadColorBounds(){defineColor("monochrome",null,[[0,0],[100,0]]);defineColor("red",[-26,18],[[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50]]);defineColor("orange",[19,46],[[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70]]);defineColor("yellow",[47,62],[[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75]]);defineColor("green",[63,178],[[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40]]);defineColor("blue",[179,257],[[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35]]);defineColor("purple",[258,282],[[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42]]);defineColor("pink",[283,334],[[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]])}function HSVtoRGB(hsv){var h=hsv[0];if(h===0){h=1}if(h===360){h=359}h=h/360;var s=hsv[1]/100,v=hsv[2]/100;var h_i=Math.floor(h*6),f=h*6-h_i,p=v*(1-s),q=v*(1-f*s),t=v*(1-(1-f)*s),r=256,g=256,b=256;switch(h_i){case 0:r=v;g=t;b=p;break;case 1:r=q;g=v;b=p;break;case 2:r=p;g=v;b=t;break;case 3:r=p;g=q;b=v;break;case 4:r=t;g=p;b=v;break;case 5:r=v;g=p;b=q;break}var result=[Math.floor(r*255),Math.floor(g*255),Math.floor(b*255)];return result}function HSVtoHSL(hsv){var h=hsv[0],s=hsv[1]/100,v=hsv[2]/100,k=(2-s)*v;return[h,Math.round(s*v/(k<1?k:2-k)*1e4)/100,k/2*100]}function stringToInteger(string){var total=0;for(var i=0;i!==string.length;i++){if(total>=Number.MAX_SAFE_INTEGER)break;total+=string.charCodeAt(i)}return total}return randomColor});
+  </script>
+  <script>
+    var squares; //number of boxes in the footer
+    function generateFooter(){ //footer is dynamically generated based on screen size
+      var footer = document.getElementById("colorfooter");
+      var width = footer.offsetWidth;
+      squares = parseInt(width / 50);
+      footer.style.height = width / squares + "px";
+      footer.style.backgroundColor = randomColor();
+      var colorboxes = document.createElement("div");
+      colorboxes.setAttribute("class", "colorboxes");
+      var box;
+      for(i = 0; i < squares; i++){
+        box = document.createElement("div");
+        box.setAttribute("class", "box");
+        box.style.width = width / squares + "px";
+        box.style.backgroundColor = randomColor({luminosity:'light'})
+        if(i === 0){
+          box.id = "noteIcon";
+        } else {
+          box.id = "noteBox".concat(i - 1); //notes are zero-indexed
         }
-        var tones = {};
-        function enableKeyboard(){
-          var notes = document.getElementsByClassName("keyNote");
-          var boxes = document.getElementsByClassName("box");
-          for(var i = 0; i < notes.length; i++){
-            notes[i].classList.add('active');
-            boxes[i].onclick = playNoteClickHandler;
-            var osc = context.createOscillator();
-            osc.frequency.value = frequency(i);
-            var gain = context.createGain();
-            gain.gain.value = .7;
-            osc.connect(gain);
-            gain.connect(context.destination);
-            var tone = {
-              note: i,
-              osc: osc,
-              gain: gain
-            }
-            tones[i] = tone;
-          }
-          console.log('keyboard enabled')
-        }
-        var pianoTuning = Math.pow( 2, 1/12 );
+        colorboxes.appendChild(box);
+      }
+      footer.appendChild(colorboxes);
+      prepareKeyboard();
+    };
 
-        function frequency(noteIndex){
-          var semitoneMap = [-9, -7, -4, -2, 0] //semitones away from A. we're doing c pentatonic, like all of those fun music sequencer flash games like from years back
-          var semitone = semitoneMap[noteIndex%5] + (parseInt(noteIndex/5) * 12 - 12);
-          return 440 * Math.pow(pianoTuning, semitone);
-        }
+    generateFooter();
 
-        function playNoteClickHandler(event){
-          event.stopPropagation();
-          var el = (event.target || event.srcElement);
-          var noteIndex = el.id.substring(3);
-          if(tones[noteIndex]){
-            console.log(tones[noteIndex])
-            tones[noteIndex].osc.start(0);
-            tones[noteIndex].osc.stop(1);
-            
-          }
-        }
+    function colorBox(noteIndex){
+      document.getElementById('noteBox' + noteIndex).style.backgroundColor = randomColor({luminosity:'light'});
+    }
 
-      </script>
-    </body>
-    </html>
+    function prepareKeyboard(){ //label the notes on the keys and set the note icon to make them visible when clicked
+      var keyletters = ['c', 'd', 'f', 'g', 'a'];
+      document.getElementById('noteIcon').innerHTML = '<span class="note">&#9835;</span>';
+      for(var i = 0; i < squares - 1; i++){
+        document.getElementById('noteBox' + i).innerHTML = '<span class="noteLabel">' + keyletters[i % keyletters.length] +' </span>';
+      }
+      document.getElementById("noteIcon").onclick = enableKeyboard;
+    }
+
+    function enableKeyboard(){ //display note labels and start handling events to play notes
+      var notes = document.getElementsByClassName("noteLabel");
+      for(var i = 0; i < notes.length; i++){
+        notes[i].classList.add('active');
+        document.getElementById('noteBox' + i).onclick = playNoteClickHandler;
+      }
+      document.onkeypress = playKeyPressedHandler;
+    }
+
+    function playNoteClickHandler(e){ //you can play with your mouse!
+      console.log(e);
+      event.stopPropagation();
+      var e = (event.target || event.srcElement);
+      console.log(e.substring);
+      var noteIndex = e.id.substring(7);
+      playNote(noteIndex);
+      colorBox(noteIndex);
+    }
+
+    function playKeyPressedHandler(e){ //you can play with the home row!
+        e = e || window.event;
+        var validKeys = "asdfghjkl;"
+        var keyCodes = [];
+        for(var i = 0; i < validKeys.length; i++){
+          keyCodes.push(validKeys.charCodeAt(i));
+        }
+        var noteIndex = keyCodes.indexOf(e.keyCode);
+        if(noteIndex > -1){
+          playNote(noteIndex);
+          colorBox(noteIndex);
+        }
+    }
+    
+    //audio
+    var context; //the web audio is absolutely bonkers
+    window.addEventListener('load', audioInit, false);
+    function audioInit() {
+      try {
+        window.AudioContext = window.AudioContext||window.webkitAudioContext;
+        context = new AudioContext();
+      }
+      catch(e) {
+        console.log('Web Audio API is not supported in this browser');
+        document.getElementById('noteBox' + i).innerHTML = "";
+      }
+    }
+    function playNote(noteIndex){
+      var osc = context.createOscillator();
+      var dry = context.createGain();
+      var wet = context.createGain();
+      var reverb = context.createConvolver();
+      osc.frequency.value = frequency(noteIndex);
+      osc.type = 'square';
+      reverb.buffer = reverbBufferGenerator(0.2,9) ;
+      osc.connect(dry);
+      dry.connect(context.destination);
+      osc.connect(wet);
+      wet.connect(reverb);
+      reverb.connect(context.destination);
+      dry.gain.setValueAtTime(0, context.currentTime);
+      dry.gain.linearRampToValueAtTime(.2, context.currentTime + 0.01);
+      dry.gain.setValueAtTime(.2, context.currentTime + 0.2);
+      dry.gain.linearRampToValueAtTime(0, context.currentTime + 1.2);
+      wet.gain.setValueAtTime(0, context.currentTime);
+      wet.gain.linearRampToValueAtTime(.5, context.currentTime + 0.15);
+      wet.gain.setValueAtTime(.5, context.currentTime + 1);
+      wet.gain.linearRampToValueAtTime(0, context.currentTime + 1.6);
+      osc.start(context.currentTime);
+      osc.stop(context.currentTime + 2);
+    }
+    
+    function frequency(noteIndex){
+      var pianoTuning = Math.pow( 2, 1/12 );
+      var semitoneMap = [-9, -7, -4, -2, 0] //semitones away from A. we're doing c pentatonic, like all of those fun music sequencer flash games like from years back
+      var octaveShift = 0;
+      if(squares < 10){
+        octaveShift = 12;
+      }
+      var semitone = semitoneMap[noteIndex%5] + (parseInt(noteIndex/5) * 12 - 12 + octaveShift);
+      //console.log(440 * Math.pow(pianoTuning, semitone));
+      return 440 * Math.pow(pianoTuning, semitone);
+    }
+
+    //impulse generation help from http://stackoverflow.com/questions/22525934/connecting-convolvernode-to-an-oscillatornode-with-the-web-audio-the-simple-wa
+    function reverbBufferGenerator(duration, decay) {
+      var sampleRate = context.sampleRate;
+      var length = sampleRate * duration;
+      var impulse = context.createBuffer(2, length, sampleRate);
+      var impulseL = impulse.getChannelData(0);
+      var impulseR = impulse.getChannelData(1);
+      for (var i = 0; i < length; i++){
+        impulseL[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, decay);
+        impulseR[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, decay);
+      }
+      return impulse;
+    }
+
+  </script>
+</body>
+</html>
