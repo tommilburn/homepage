@@ -222,10 +222,8 @@
     }
 
     function playNoteClickHandler(e){ //you can play with your mouse!
-      console.log(e);
-      event.stopPropagation();
-      var e = (event.target || event.srcElement);
-      console.log(e.substring);
+      e.stopPropagation();
+      var e = (e.target || e.srcElement);
       var noteIndex = e.id.substring(7);
       playNote(noteIndex);
       colorBox(noteIndex);
@@ -233,12 +231,13 @@
 
     function playKeyPressedHandler(e){ //you can play with the home row!
         e = e || window.event;
+	console.log(e);
         var validKeys = "asdfghjkl;"
         var keyCodes = [];
         for(var i = 0; i < validKeys.length; i++){
           keyCodes.push(validKeys.charCodeAt(i));
         }
-        var noteIndex = keyCodes.indexOf(e.keyCode);
+        var noteIndex = keyCodes.indexOf(e.which);
         if(noteIndex > -1){
           playNote(noteIndex);
           colorBox(noteIndex);
