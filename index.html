@@ -120,11 +120,14 @@
         margin: 0;
         width: 100%;
       }
+      .content{
+	padding: .5em 1.5em; 
+      }
       .link{
         font-size: 1em;
       }
       .colorboxes{
-        margin-top: .2em;
+        margin-top: 1.4em;
       }
     }
   </style>
@@ -181,6 +184,9 @@
     function generateFooter(){ //footer is dynamically generated based on screen size
       var footer = document.getElementById("colorfooter");
       var width = footer.offsetWidth;
+      if (navigator.userAgent.search("Firefox") != -1){ //otherwise firefox hides the last box :(
+        width -= 0.25;
+      }
       squares = parseInt(width / 50);
       footer.style.height = width / squares + "px";
       footer.style.backgroundColor = randomColor();
