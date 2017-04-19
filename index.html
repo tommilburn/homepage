@@ -19,7 +19,7 @@
     h1{
       font-family: 'Lato', sans-serif;
       font-weight: 900;
-      color: #657b83;
+      color: #cb4b16;
       text-align: center;
       font-size: 1.777em;
     }
@@ -35,6 +35,7 @@
     a {
       color: #fff;
       display:inline-block;
+      text-decoration: none;
       padding: .7em 0em;
       width:100%;
       height:100%;
@@ -51,14 +52,14 @@
       transition: background-color 200ms ease-in;
     }
     .link:hover{
-      background-color: #99D4FF;
+      background-color: #06568F;
     }
 
     .container{
       margin: 10% auto;
       width: 95%;
       max-width: 55em;
-      background-color: #fdf6e3;
+      background-color: #fdf6e9;
       border-radius: 2px;
       -webkit-box-shadow: 4px 4px 3px 0px rgba(0,0,0,0.42);
       -moz-box-shadow: 4px 4px 3px 0px rgba(0,0,0,0.42);
@@ -82,7 +83,12 @@
       transition: all 200ms ease-in;
       text-align: center;
       padding-top: 8px;
-      cursor:pointer;
+    }
+    .clickable {
+      cursor: pointer;
+    }
+    .not-clickable{
+      cursor:default;
     }
     .note, .noteLabel{
       font-size: 1.7em;
@@ -129,7 +135,7 @@
       <div class="row middle-xs">
         <div class="col-sm-6">
           <div class="bio">
-            <h1>hey! i'm tom milburn</h1>
+            <h1>Hey! I'm Tom Milburn</h1>
             <h2 class="center">I'm intensely passionate about the overlap between media, software, and design.</h2>
             <h2 class="center">I'd also like to work for you.</h2>        
           </div>
@@ -188,6 +194,7 @@
         box.style.backgroundColor = randomColor({luminosity:'light'})
         if(i === 0){
           box.id = "noteIcon";
+	  box.classList.add("clickable");
         } else {
           box.id = "noteBox".concat(i - 1); //notes are zero-indexed
         }
@@ -216,8 +223,11 @@
       var notes = document.getElementsByClassName("noteLabel");
       for(var i = 0; i < notes.length; i++){
         notes[i].classList.add('active');
+        notes[i].parentNode.classList.add('clickable');
         document.getElementById('noteBox' + i).onclick = playNoteClickHandler;
       }
+      document.getElementById("noteIcon").classList.remove('clickable');
+      document.getElementById("noteIcon").classList.add('not-clickable');
       document.onkeypress = playKeyPressedHandler;
     }
 
