@@ -41,7 +41,7 @@
       height:100%;
     }
     .links{
-      padding-top: .5em;
+      padding-top: 1em;
     }
     .link{
       font-family: 'Source Code Pro', monospace;
@@ -149,20 +149,12 @@
               <div class="link"><a href="https://github.com/tommilburn">github</a></div>
             </div>
             <div class="col-xs-6">
-              <div class="link"><a href="Thomas-Milburn-resume.pdf">resume</a></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
               <div class="link"><a href="https://www.linkedin.com/in/thomas-milburn-a3136992">linkedin</a></div>
             </div>
-            <div class="col-xs-6">
-              <div class="link"><a href="https://twitter.com/tommilburn">twitter</a></div>
-            </div>
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <div class="link"><a href="https://www.flickr.com/gp/153859490@N03/5Cp038">photos</a></div>
+              <div class="link"><a href="https://twitter.com/tommilburn">twitter</a></div>
             </div>
             <div class="col-xs-6">
               <div class="link"><a href="mailto:thomasjosephmilburn@gmail.com">email</a></div>
@@ -185,6 +177,7 @@
       var footer = document.getElementById("colorfooter");
       var width = footer.offsetWidth;
       if (navigator.userAgent.search("Firefox") != -1){ //otherwise firefox hides the last box :(
+	      console.log("firefox");
         width -= 0.25;
       }
       squares = parseInt(width / 50);
