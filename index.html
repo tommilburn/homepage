@@ -257,7 +257,7 @@
     }
     
     //audio
-    var context; //the web audio is absolutely bonkers
+    var context; //the web audio api is absolutely bonkers
     window.addEventListener('load', audioInit, false);
     function audioInit() {
       try {
@@ -275,7 +275,7 @@
       var wet = context.createGain();
       var reverb = context.createConvolver();
       osc.frequency.value = frequency(noteIndex);
-      osc.type = 'square';
+      osc.type = 'sine';
       reverb.buffer = reverbBufferGenerator(0.2,9) ;
       osc.connect(dry);
       dry.connect(context.destination);
